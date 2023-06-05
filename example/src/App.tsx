@@ -1,31 +1,22 @@
 import * as React from 'react';
+import { Icon, Input, View } from 'custom-components';
+import { LogBox } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'custom-components';
+LogBox.ignoreLogs(['Possible Unhandled Promise']);
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View p={20}>
+      <Input
+        left={
+          <TextInput.Icon
+            icon={() => (
+              <Icon name="pencil : materialcomm" size={30} color="blue" />
+            )}
+          />
+        }
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});

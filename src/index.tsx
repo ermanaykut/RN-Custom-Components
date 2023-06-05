@@ -1,22 +1,16 @@
-import { NativeModules, Platform } from 'react-native';
+import * as React from 'react';
 
-const LINKING_ERROR =
-  `The package 'custom-components' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+import { PaperProvider } from 'react-native-paper';
 
-const CustomComponents = NativeModules.CustomComponents
-  ? NativeModules.CustomComponents
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+import Button from './Button';
+import View from './View';
+import Input from './Input';
+import Icon from './Icon';
 
-export function multiply(a: number, b: number): Promise<number> {
-  return CustomComponents.multiply(a, b);
-}
+export { Button, Input, View, Icon };
+
+const ComponentProvider = ({ children }: any) => {
+  <PaperProvider>{children}</PaperProvider>;
+};
+
+export default ComponentProvider;

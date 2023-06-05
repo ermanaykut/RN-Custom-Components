@@ -34,7 +34,9 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install && yarn example pods",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build",
+    "start": "cd example && yarn start",
+    "ios": "cd example && yarn ios"
   },
   "keywords": [
     "react-native",
@@ -52,8 +54,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.2.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.2.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",
@@ -78,7 +80,10 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-paper": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-vector-icons" : "*"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -156,5 +161,11 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@types/react-native-vector-icons": "^6.4.13",
+    "react-native-paper": "^5.8.0",
+    "react-native-safe-area-context": "^4.5.3",
+    "react-native-vector-icons": "^9.2.0"
   }
 }
