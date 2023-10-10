@@ -6,7 +6,6 @@ import styles from './style';
 const Button = ({
   onPress = () => {},
   text = '',
-  containerStyle,
   textStyle,
   disabled = false,
   activityIndicatorColor = 'gray',
@@ -28,13 +27,13 @@ const Button = ({
   backgroundColor = 'white',
   w = '100%',
   h,
+  containerStyle,
 }: IButtonProps) => {
   return (
     <Pressable
       disabled={disabled}
       style={[
         styles.container,
-        containerStyle,
         row && styles.row,
         {
           margin: m,
@@ -55,6 +54,7 @@ const Button = ({
           width: w,
           height: h,
         },
+        containerStyle,
       ]}
       onPress={onPress}
     >
